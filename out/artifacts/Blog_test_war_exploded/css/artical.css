@@ -1,0 +1,33 @@
+.nav {
+    height: 60px;
+    background-color: #f4f4f4;
+    text-align: center;
+    line-height: 60px;
+}
+.nav span:nth-child(1) {
+    font-size: 24px;
+}
+.nav span:nth-child(3) {
+    font-size: 18px;
+}
+.nav input {
+    height: 35px;
+    margin: 0 80px 0 30px;
+    padding-left: 15px;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+}
+#title {
+    width: 600px;
+}
+#class {
+    width: 300px;
+}
+.nav button {
+    width: 80px;
+    height: 35px;
+    padding: 0 5px;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    cursor: pointer;
+}
