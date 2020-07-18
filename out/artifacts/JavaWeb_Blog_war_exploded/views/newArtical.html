@@ -30,12 +30,20 @@
                 // 获取当前日期
                 var nowDate = new Date()
                 // 日期格式化
-                nowDate = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate()
+                var month = nowDate.getMonth() + 1
+                var date = nowDate.getDate()
+                if (month < 10) {
+                    month = '0' + month
+                }
+                if (date < 10) {
+                    date = '0' + date
+                }
+                nowDate = nowDate.getFullYear() + '-' + month + '-' + date
                 if (title === '' || contentHtml === '' || cname === '') {
                     alert('内容不能为空!')
                 } else {
                     $.ajax({
-                        url: '/NewAndAlterArticleServlet',
+                        url: '../NewAndAlterArticleServlet',
                         method: 'POST',
                         data: {
                             title: title,
