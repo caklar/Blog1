@@ -1,0 +1,2 @@
+1.lib应位于web-inf下，否则会报出相关的ClassNotFound错误
+2.关于项目配置可参看https://www.cnblogs.com/fangyunchen/p/10352039.html

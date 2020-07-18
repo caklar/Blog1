@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jdbc_frame (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jdbc_frame.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

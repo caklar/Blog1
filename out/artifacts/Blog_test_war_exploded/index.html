@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+首页
+<button id="1">点击</button>
+<button id="123">点击1</button>
+</body>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    function a() {
+        alert("哈哈");
+    }
+    $("#123").click(function(){
+        /*$.ajax({url:"Servlet",success:function(result){
+                alert(result);
+            }});*/
+        $.ajax({
+            type: 'POST',
+            url: 'Servlet1',
+            data: {},
+            dataType:"JSON",
+            scriptCharset: 'utf-8',            //解决乱码
+            success: function(result,msg){
+                //alert(msg);
+                //alert(dat.dataa);
+                alert(result);
+                alert(msg);
+
+            },
+            error:function(xhr,errorMsg,error){
+                alert(xhr.status);
+                alert(errorMsg);//console.log();
+            }
+        });
+
+    });
+    $("#1").click(function(){
+        /*$.ajax({url:"Servlet",success:function(result){
+                alert(result);
+            }});*/
+        $.ajax({
+            type: 'POST',
+            url: 'Servlet',
+            data: {},
+            dataType:"JSON",
+            success: function(result,msg){
+                //alert(msg);
+                //alert(dat.dataa);
+                alert(result.tom);
+
+            },
+            error:function(xhr,errorMsg,error){
+                alert(xhr.status);
+                alert(errorMsg);//console.log();
+            }
+        });
+
+    });
+</script>
+</html>
