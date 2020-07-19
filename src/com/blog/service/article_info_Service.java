@@ -29,7 +29,16 @@ public class article_info_Service {
     public List<Map<String ,Object>> Find_exhibit_info(int id){
         List<Map<String,Object>> list=null;
         list=article_Dao.get_exhibit_info(id);
-
+        return list;
+    }
+    public List<Map<String ,Object>> Find_class_info(){
+        List<Map<String,Object>> list=null;
+        list=article_Dao.get_class_info();
+        return list;
+    }
+    public List<Map<String ,Object>> Find_exhibit_info_2(){
+        List<Map<String,Object>> list=null;
+        list=article_Dao.get_exhibit_info_2();
         return list;
     }
 }
