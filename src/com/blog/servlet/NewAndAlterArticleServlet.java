@@ -29,6 +29,8 @@ public class NewAndAlterArticleServlet extends javax.servlet.http.HttpServlet {
         String context = request.getParameter("content");
         String cname = request.getParameter("cname");
 
+        System.out.println(title+"in servlet");
+
         NewAndAlterArticleService newAndAlterArticleService = new NewAndAlterArticleService();
 
         int row = newAndAlterArticleService.createArticle(title, date, context, cname);

@@ -37,8 +37,7 @@
         </div>
         <div class="aside">
             <ul class="aside-func">
-<%--                <li>新建</li>--%>
-                <a href="/JavaWeb_Blog_war_exploded/views/newArticle.html">新建</a>
+    `           <li>新建</li>
                 <li>修改</li>
                 <li>删除</li>
                 <li id="top">top</li>
