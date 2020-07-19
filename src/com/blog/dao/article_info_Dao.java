@@ -41,4 +41,5 @@ public class article_info_Dao extends BaseDao {
         list=super.executeQuery(sql,id);
         return list;
     }
+
 }

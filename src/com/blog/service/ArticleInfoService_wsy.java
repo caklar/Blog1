@@ -12,6 +12,25 @@ import java.util.Map;
 public class ArticleInfoService_wsy {
     private article_info_Dao article_Dao=new article_info_Dao();
     private ClassInfoDao classInfoDao = new ClassInfoDao();
+    /*
+    获取所有文章信息
+     */
+    public List<Map<String ,Object>> get_All_Article(){
+        List<Map<String ,Object>> list=null;
+        list = article_Dao.get_All_Article();
+        return list;
+    }
+    /*
+    返回某种类型的文章信息
+     */
+    public List<Map<String,Object>> getArticleOfClass(String class_id){
+        return article_Dao.get_id_article(class_id);
+    }
+
+
+    /*
+    返回json格式的数据
+     */
     public JSONArray findAll()
     {
         List<Map<String,Object>> list=null;
