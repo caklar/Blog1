@@ -2,8 +2,6 @@ package com.blog.service;
 
 import com.blog.dao.NewAndAlterArticleDao;
 
-import java.sql.SQLException;
-
 /**
  * @program: blog
  * @description: 新建或修改文章服务

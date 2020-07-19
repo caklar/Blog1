@@ -3,8 +3,6 @@ package test;
 import com.blog.service.NewAndAlterArticleService;
 import org.junit.Test;
 
-import java.sql.SQLException;
-
 /**
  * @program: blog
  * @description: 新建文章修改文章测试类

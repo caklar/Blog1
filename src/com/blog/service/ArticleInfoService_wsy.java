@@ -2,7 +2,6 @@ package com.blog.service;
 
 import com.blog.dao.ClassInfoDao;
 import com.blog.dao.article_info_Dao;
-import com.mysql.cj.xdevapi.JsonArray;
 import net.sf.json.JSONArray;
 
 import java.util.ArrayList;

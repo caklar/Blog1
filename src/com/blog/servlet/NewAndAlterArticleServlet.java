@@ -1,13 +1,9 @@
 package com.blog.servlet;
 
-import com.blog.service.NewAndAlterArticleService;
 import net.sf.json.JSONObject;
 
-
 import javax.servlet.annotation.WebServlet;
-
 import java.io.IOException;
-import java.io.PrintWriter;
 
 
 
