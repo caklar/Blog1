@@ -4,8 +4,15 @@
 }
 body {
     background-color: #faf9f7;
-    font: 14px/1.5 arial;
+    font: 14px/1.5 Verdana, Georgia, serif, 'Microsoft YaHei', 'Times New Roman', SimHei;
     color: #333;
+}
+ul{
+    list-style: none;
+}
+a {
+    color: #333;
+    text-decoration: none;
 }
 input, button {
     outline: none !important;
@@ -15,6 +22,6 @@ input, button {
     height: 800px;
     margin: 0 auto;
     padding: 150px 32px 0;
-    box-shadow: 0 6px 12px 0px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.04);
     background-color: #fff;
 }

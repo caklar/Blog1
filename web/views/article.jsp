@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,11 +8,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="../css/public.css">
-        <link rel="stylesheet" href="../editor.md-master/css/editormd.css" />
-        <link rel="stylesheet" href="../css/artical.css">
-        <script src="../js/jquery-3.5.1.min.js"></script>
-        <script src="../editor.md-master/editormd.min.js"></script>
+        <link rel="stylesheet" href="css/public.css">
+        <link rel="stylesheet" href="editor.md-master/css/editormd.css" />
+        <link rel="stylesheet" href="css/article.css">
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="editor.md-master/editormd.min.js"></script>
     </head>
 
     <body>
@@ -37,7 +37,8 @@
         </div>
         <div class="aside">
             <ul class="aside-func">
-                <li>新建</li>
+<%--                <li>新建</li>--%>
+                <a href="/JavaWeb_Blog_war_exploded/views/newArticle.html">新建</a>
                 <li>修改</li>
                 <li>删除</li>
                 <li id="top">top</li>
