@@ -28,7 +28,8 @@ public class article_classname_Servlet extends HttpServlet {
         List<Map<String, Object>> list = re.Find_class_info();;
         HttpSession session =request.getSession();
         session.setAttribute("class_info_test", list);
-        response.sendRedirect("class_info.jsp");
+//        response.sendRedirect("class_info.jsp");
+        request.getRequestDispatcher("class_info.jsp").forward(request,response);
         return;
     }
 }

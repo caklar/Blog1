@@ -29,23 +29,24 @@ public class article_getname_Servlet extends HttpServlet {
         article_info_Service re = new article_info_Service();
         List<Map<String, Object>> list = re.Find_exhibit_info_2();;
 
-        String[] key_info= new String[]{"a_title", "a_ldate", "a_context"};
-        Object[] value_info=new Object[3];
+        String[] key_info= new String[]{"a_title", "a_ldate", "a_context","a_id"};
+        Object[] value_info=new Object[4];
         StringBuilder sentence= new StringBuilder("[");
         for(int i=0;i<list.size();i++){
             Map<String,Object> map=list.get(i);
-            for(int j=0;j<3;j++) {
+            for(int j=0;j<4;j++) {
                 value_info[j] = map.get(key_info[j]);
             }
             if(i==list.size()-1) {
-                sentence.append("{\"title\":\"").append(value_info[0]).append("\",\"ldate\":\"").append(value_info[1]).append("\",\"article_preview\":\"").append(value_info[2]).append("\"}");
+                sentence.append("{\"title\":\"").append(value_info[0]).append("\",\"ldate\":\"").append(value_info[1]).append("\",\"article_preview\":\"").append(value_info[2]).append("\",\"article_id\":\"").append(value_info[3]).append("\"}");
             }
             else
-                sentence.append("{\"title\":\"").append(value_info[0]).append("\",\"ldate\":\"").append(value_info[1]).append("\",\"article_preview\":\"").append(value_info[2]).append("\"},");
+                sentence.append("{\"title\":\"").append(value_info[0]).append("\",\"ldate\":\"").append(value_info[1]).append("\",\"article_preview\":\"").append(value_info[2]).append("\",\"article_id\":\"").append(value_info[3]).append("\"},");
 
         }
         sentence.append("]");
         System.out.println(sentence);
         out.print(sentence);
+
     }
 }

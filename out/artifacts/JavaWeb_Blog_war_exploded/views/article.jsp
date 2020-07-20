@@ -19,7 +19,7 @@
         <div class="nav">
             <a href="#">首页</a>
             <a href="#">归档</a>
-            <a href="#">分类</a>
+            <a href="article_classname_Servlet">分类</a>
             <a href="#">关于</a>
             <a href="#">朋友</a>
             <a href="#">常用站点</a>
@@ -37,8 +37,7 @@
         </div>
         <div class="aside">
             <ul class="aside-func">
-<%--                <li>新建</li>--%>
-                <a href="/JavaWeb_Blog_war_exploded/views/newArticle.html">新建</a>
+                <li><a href="/JavaWeb_Blog_war_exploded/views/newArticle.html">新建</a></li>
                 <li>修改</li>
                 <li>删除</li>
                 <li id="top">top</li>

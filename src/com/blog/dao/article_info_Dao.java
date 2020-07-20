@@ -42,7 +42,7 @@ public class article_info_Dao extends BaseDao {
     }
     public List<Map<String ,Object>> get_exhibit_info_2(){
         List<Map<String,Object>> list=null;
-        String sql="SELECT a_title,a_context,a_date,a_ldate from article_info where a_del=0";
+        String sql="SELECT a_id,a_title,a_context,a_date,a_ldate from article_info where a_del=0";
         list=super.executeQuery(sql);
         return list;
     }
