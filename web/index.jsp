@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_style.css">
-
     <title>blog_test</title>
 </head>
 
@@ -67,6 +66,7 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js">
+
 </script>
 
 </html>

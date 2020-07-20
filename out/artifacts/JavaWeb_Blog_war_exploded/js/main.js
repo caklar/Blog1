@@ -17,7 +17,8 @@ request.onreadystatechange = () => {
 
         article.forEach(item => {
             $('#article_list').append(
-                `   <div class="article_title">
+                `   
+                    <div class="article_title">
                     ${article[an].title}
                     </div>
     
@@ -30,14 +31,17 @@ request.onreadystatechange = () => {
                     </div>
     
                     <p>
-                    <button id="read_more" class="read_button">
-                        READ MORE
-                    </button>
+<!--                    <button id="read_more" class="read_button">-->
+                        <a href="GetOneArticleServlet?article_id=${article[an].article_id}">
+                    READ MORE
+                    </a> 
+<!--                    </button>-->
                     </p>`
             );
             an += 1;
         });
         an = 0;
+
     }
 };
 request.send();

@@ -34,10 +34,8 @@ public class NewAndAlterArticleServlet extends javax.servlet.http.HttpServlet {
         NewAndAlterArticleService newAndAlterArticleService = new NewAndAlterArticleService();
 
         int row = newAndAlterArticleService.createArticle(title, date, context, cname);
-
         PrintWriter out=response.getWriter();
         out.print(row);
         out.close();
-
     }
 }
