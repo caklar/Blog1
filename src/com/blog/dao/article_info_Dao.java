@@ -26,20 +26,24 @@ public class article_info_Dao extends BaseDao {
         list=super.executeQuery(sql,id);
         return list;
     }
-    //新建文章
-    /*
-    public int initiate_article(int a_id,String a_title,int a_cid,String a_context,String a_ldate,String a_date,int a_view,int a_del){
-        int row=0;
-        String sql="INSERT INTO article_info(a_id,a_title,a_cid,a_context,a_ldate,a_date,a_view,a_del)\n" +
-                " VALUES(?,?,?,?,?,?,?,?)";
-        row=super.executeUpdate(sql,a_id,a_title,a_cid,a_context,a_ldate,a_date,a_view,a_del);
-        return row;
-    }*/
+    //展示文章必要信息
     public List<Map<String ,Object>> get_exhibit_info(int id){
         List<Map<String,Object>> list=null;
         String sql="SELECT a_title,a_context,a_date,a_ldate from article_info where a_id=?";
         list=super.executeQuery(sql,id);
         return list;
     }
-
+    //显示文章分类
+    public List<Map<String , Object>> get_class_info(){
+        List<Map<String,Object>> list=null;
+        String sql="SELECT class_id,class_name from class_info where class_del=0";
+        list=super.executeQuery(sql);
+        return list;
+    }
+    public List<Map<String ,Object>> get_exhibit_info_2(){
+        List<Map<String,Object>> list=null;
+        String sql="SELECT a_id,a_title,a_context,a_date,a_ldate from article_info where a_del=0";
+        list=super.executeQuery(sql);
+        return list;
+    }
 }

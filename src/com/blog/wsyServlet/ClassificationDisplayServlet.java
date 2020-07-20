@@ -28,5 +28,7 @@ public class ClassificationDisplayServlet extends HttpServlet {
         System.out.println(claAndNum);
        // response.sendRedirect(request.getContextPath() + "/WEB-INF/classification/classification.jsp");
         request.getRequestDispatcher("WEB-INF/classification/classification.jsp").forward(request,response);//页面无信息是因为缺少了相应的forward
+
+        //response.sendRedirect("WEB-INF/classification/classification.jsp");
     }
 }
