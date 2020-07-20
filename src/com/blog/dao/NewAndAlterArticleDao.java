@@ -10,7 +10,11 @@ import java.util.*;
 
 /**
  * @program: blog
- * @description: 接受新文章的数据，写入数据库；接受修改过的文章数据，更新数据库；修改文章时，从数据库中返回需要的一些信息
+ * @description:
+ * 接受新文章的数据，写入数据库；
+ * 接受修改过的文章数据，更新数据库；
+ * 修改文章时，从数据库中返回需要的一些信息；
+ * 根据id删除文章
  * @author: BIG_TRUCK li zonglin
  * @create: 2020-07-17 14:04
  **/
@@ -56,6 +60,45 @@ public class NewAndAlterArticleDao extends BaseDao {
                 " (?,?,?,?,?)";
         row=super.executeUpdate(sql_insert, title, id, context, date, date);
 
+        return row;
+    }
+
+
+    /**
+    * @description: 根据id删除一篇文章
+    * @author: BIG_TRUCK li zonglin
+    **/
+    public int deleteArticle(int article_id){
+
+        int row;
+
+        // 先找他的 class id
+        String sql_getcid = "select a_cid from article_info where a_id=?";
+        List<Map<String, Object>> cidlist;
+        Map<String , Object> cidmap;
+        int classid;
+
+        cidlist = super.executeQuery(sql_getcid, article_id);
+
+        cidmap = cidlist.get(0);
+        classid = (int) cidmap.get("a_cid");
+
+
+        // 然后看看还有几行
+        String sql_classid_howmany= "select a_id from article_info where a_cid=? and a_del=0";
+        List<Map<String, Object>> cidrow;
+        int rowid;
+        cidrow = super.executeQuery(sql_classid_howmany, classid);
+
+        // 删除文章
+        String sql_delete = "update article_info set a_del=1 where a_id=?";
+        row = super.executeUpdate(sql_delete, article_id);
+
+        if(cidrow.size()==1){
+            // 如果 这个分类就剩一个了
+            String class_del= "update class_info set class_del=1 where class_id=?";
+            super.executeUpdate(class_del, classid);
+        }
 
         return row;
     }

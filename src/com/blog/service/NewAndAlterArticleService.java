@@ -22,5 +22,13 @@ public class NewAndAlterArticleService {
         return row;
     }
 
+    public int delete_Article(int article_id){
+
+        int row;
+        row = newAndAlterArticleDao.deleteArticle(article_id);
+        return row;
+
+    }
+
 
 }

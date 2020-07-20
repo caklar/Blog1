@@ -5,6 +5,7 @@ import net.sf.json.JSONObject;
 
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,8 +35,23 @@ public class NewAndAlterArticleServlet extends javax.servlet.http.HttpServlet {
         NewAndAlterArticleService newAndAlterArticleService = new NewAndAlterArticleService();
 
         int row = newAndAlterArticleService.createArticle(title, date, context, cname);
+
+        HttpSession session = request.getSession();
+        session.setAttribute("title", title);
+        session.setAttribute("date", date);
+        session.setAttribute("context", context);
+
         PrintWriter out=response.getWriter();
         out.print(row);
         out.close();
+//
+//        request.setAttribute("title", title);
+//        request.setAttribute("date", date);
+//        request.setAttribute("context", context);
+//
+//        request.getRequestDispatcher("views/article.jsp").forward(request, response);
+//
+
+
     }
 }
