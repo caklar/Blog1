@@ -10,9 +10,9 @@ request.open("GET", `index`);
 request.onreadystatechange = () => {
     if (request.readyState === 4 && request.status === 200) {
 
-        article_list.querySelectorAll("li").forEach(item => {
-            item.remove();
-        })
+        // article_list.querySelectorAll("li").forEach(item => {
+        //     item.remove();
+        // })
 
         article = JSON.parse(request.response.replace(/[\n\r]/g, "<br/>"));
 
@@ -21,7 +21,7 @@ request.onreadystatechange = () => {
             article[an].article_preview = article[an].article_preview.substring(0, 20);
 
             $('#article_list').append(
-                `   <li></li><div class="article_title">
+                `   <div class="article_title">
                     ${article[an].title}
                     </div>
 
@@ -39,7 +39,7 @@ request.onreadystatechange = () => {
                         READ MORE
                         </a>
                     </button>
-                    </p></li>`
+                    </p>`
             );
             an += 1;
         });
@@ -110,9 +110,9 @@ $(".bar_menu")
         var n, e, t, o, m, l;
         s.forEach(function (i, x) {
             for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++)n = u[e],
-                null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y,
-                    l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m),
-                        t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
+            null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y,
+                l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m),
+                t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
         }),
             x(i)
     }
@@ -123,12 +123,12 @@ $(".bar_menu")
                 window.setTimeout(n, 1e3 / 45)
             },
         w = Math.random, y = { x: null, y: null, max: 2e4 }; m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o,
-            window.onmousemove = function (n) {
-                n = n || window.event, y.x = n.clientX, y.y = n.clientY
-            },
-            window.onmouseout = function () {
-                y.x = null, y.y = null
-            };
+        window.onmousemove = function (n) {
+            n = n || window.event, y.x = n.clientX, y.y = n.clientY
+        },
+        window.onmouseout = function () {
+            y.x = null, y.y = null
+        };
     for (var s = [], f = 0; d.n > f; f++) {
         var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1; s.push({ x: h, y: g, xa: v, ya: p, max: 6e3 })
     }

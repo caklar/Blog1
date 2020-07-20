@@ -50,7 +50,7 @@ public class GetOneArticleServlet extends HttpServlet {
 
         request.setAttribute("title", title);
         request.setAttribute("date", date);
-        request.setAttribute("context", context);
+        request.setAttribute("content", context);
 
 
         request.getRequestDispatcher("views/article.jsp").forward(request, response);
