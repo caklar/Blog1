@@ -18,17 +18,17 @@
 
     <body>
         <div class="nav">
-            <a href="#">首页</a>
-            <a href="#">归档</a>
-            <a href="article_classname_Servlet">分类</a>
+            <a href="">首页</a>
+            <a href="JavaScript:void(0);" id="archive">归档</a>
+            <a href="JavaScript:void(0);" id="classify">标签</a>
             <a href="#">关于</a>
             <a href="#">朋友</a>
             <a href="#">常用站点</a>
         </div>
-        <div class="content">
-            <div class="main-content">
+        <div class="content" >
+            <div class="main-content" id="main">
                 <div class="a-title">
-                    <h1>${ title }</h1>
+                    <h1>${title}</h1>
                 </div>
                 <div class="a-msg">
                     <span>${ date }</span>
@@ -88,5 +88,6 @@
             })
         </script>
     </body>
-
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/wsy.js"></script>
 </html>

@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="css/frame.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_style.css">
-    <link rel="stylesheet" href="public.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/public.css">
 
     <title>blog_test</title>
 </head>
@@ -46,8 +46,8 @@
         <div class="menu_panel">
 
             <div class="bar_menu_ch"><a href="">首页</a></div>
-            <div class="bar_menu_ch"><a href="" id="archive">归档</a></div>
-            <div class="bar_menu_ch"><a href="">标签</a></div>
+            <div><a href="JavaScript:void(0);" id="archive">归档</a></div>
+            <div><a href="JavaScript:void(0);" id="classify">标签</a></div>
             <div class="bar_menu_ch"><a href="">关于</a></div>
             <div class="bar_menu_ch"><a href="">朋友</a></div>
             <div class="bar_menu_ch"><a href="">常用站点</a></div>
@@ -63,13 +63,13 @@
 <main>
 
 
-    <div class="title">
+    <div class="title" id="title">
         <div class="site_name">Big Carrot</div>
         <div class="site_des">人们依然相信 什么未来会更精彩</div>
 
     </div>
 
-    <div class="content">
+    <div class="content" id="main">
         <ul id='article_list'>
             <li>
 
@@ -234,10 +234,10 @@
 </footer>
 
 </body>
-<script src="//at.alicdn.com/t/font_1953733_jaco4732ny.js">
+<script src="//at.alicdn.com/t/font_1953733_jaco4732ny.js"></script>
 
-</script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/wsy.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js">
 </script>
 

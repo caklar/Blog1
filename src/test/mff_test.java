@@ -2,9 +2,7 @@ package test;
 
 import com.blog.service.article_info_Service;
 import org.junit.Test;
-import org.omg.CORBA.OBJ_ADAPTER;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

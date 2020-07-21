@@ -38,11 +38,7 @@
 package test;
 
 import com.blog.service.DemoService;
-import com.blog.service.article_info_Service;
 import org.junit.Test;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * @program: blog
