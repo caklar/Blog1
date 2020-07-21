@@ -10,27 +10,49 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
+
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap.css">--%>
 <html>
 <head>
     <title>Title</title>
-</head>
+    <%--<style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .classOfArticles{
+            color: red;
+            border: 1px solid black;
+        }
+    </style>
+</head>--%>
 <body>
 <%--获取文章分类页面--%>
-<table>
+<%--<div class="py-8 shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">--%>
+<%--    <div class="px-8 pb-5 inline-flex relative overflow-hidden">--%>
+<%--        <a href="https://lizonglin313.github.io/tag/FvEjZM6o_C" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">--%>
+<%--            <i class="ri-hashtag"></i>--%>
+<%--            复习整理（3）--%>
+<%--        </a>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
     <c:forEach var="items" items="${claAndNum}">
-        <tr>
-            <td><span class="classOfArticles">${items.class_id}</span></td>
-            <td>${items.class_name}</td>
-            <td>${items.num}</td>
-        </tr>
+        <a href="JavaScript:void(0);" id="${items.class_id}" class="classOfArticles">
+            <i class=""></i>
+                ${items.class_name}<span class="badge">${items.num}</span>
+        </a>
     </c:forEach>
-</table>
+<%--<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default">Left</button>
+    <button type="button" class="btn btn-default">Middle</button>
+    <button type="button" class="btn btn-default">Right</button>
+</div>--%>
+
 </body>
 <script type="text/javascript">
-    $(".classOfArticles").click(function(event){
 
-
-    });
 
     $(document).on("click", ".classOfArticles", function (e) {
         //$(this)或者$(e.target)获取当前元素
@@ -38,7 +60,7 @@
 
         //alert($(this).html())
         // alert(event.)
-        var classId=$(this).html();
+        var classId=$(this).attr("id");
         //alert(classId);
         $.ajax({
             type: 'POST',

@@ -25,8 +25,8 @@
             <a href="#">朋友</a>
             <a href="#">常用站点</a>
         </div>
-        <div class="content" id="main">
-            <div class="main-content">
+        <div class="content" >
+            <div class="main-content" id="main">
                 <div class="a-title">
                     <h1>${title}</h1>
                 </div>
