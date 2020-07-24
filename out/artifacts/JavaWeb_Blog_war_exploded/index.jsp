@@ -13,23 +13,38 @@
 
     <style type="text/css">
         .icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -.15em;
-            fill: currentColor;
-            overflow: hidden;
+            width : 1em;
+            height : 1em;
+            vertical-align : -.15em;
+            fill : currentColor;
+            overflow : hidden;
         }
 
     </style>
 
-    <link rel="stylesheet" href="css/frame.css">
+
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_style.css">
-    <link rel="stylesheet" href="public.css">
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="public.css">--%>
 
     <title>blog_test</title>
 </head>
 
 <body style="overflow:auto;overflow-x: hidden">
+
+<div class="dialog_bg">
+    <div class="dialog" id="normal">
+        <div class="close" id="close1"></div>
+        <input type="password" class="form-control" id="pass" placeholder="请输入口令"><br>
+        <button class="btn btn-primary" id="confirm1">确认</button>
+    </div>
+    <div class="dialog" id="error">
+        <div class="close" id="close2"></div>
+        <p>口令错误!</p>
+        <button class="btn btn-primary" id="confirm2">确认</button>
+    </div>
+</div>
 
 <header>
 
@@ -46,11 +61,9 @@
         <div class="menu_panel">
 
             <div class="bar_menu_ch"><a href="">首页</a></div>
-            <div class="bar_menu_ch"><a href="" id="archive">归档</a></div>
-            <div class="bar_menu_ch"><a href="">标签</a></div>
-            <div class="bar_menu_ch"><a href="">关于</a></div>
-            <div class="bar_menu_ch"><a href="">朋友</a></div>
-            <div class="bar_menu_ch"><a href="">常用站点</a></div>
+            <div><a href="JavaScript:void(0);" id="archive">归档</a></div>
+            <div><a href="JavaScript:void(0);" id="classify">标签</a></div>
+            <div class="bar_menu_ch"><a href="/JavaWeb_Blog_war_exploded/GetOneArticleServlet?article_id=2">关于</a></div>
         </div>
 
 
@@ -63,140 +76,23 @@
 <main>
 
 
-    <div class="title">
-        <div class="site_name">Big Carrot</div>
-        <div class="site_des">人们依然相信 什么未来会更精彩</div>
+    <div class="title" >
+        <div class="site_name">个人博客系统</div>
+        <div class="site_des">生产实习7组---系统展示</div>
 
     </div>
 
-    <div class="content">
-        <ul id='article_list'>
-            <li>
-
-                <div class="article_title">
-                    链式存储二叉树的遍历
-                </div>
-                <div class="article_last_date">
-                    2020-05-29
-                </div>
-
-                <div class="article_pre">
-                    先序遍历，中序遍历，后序遍历以及层次遍历。 使用递归、队列。 整理自Leetcode。 说明 使用到的树结点类型为： struct TreeNode { int val; struct
-                    TreeNode *left;
-                    ...
-                </div>
-
-
-                <p>
-                    <button class="read_more" class="read_button">
-                        <a href="https://www.baidu.com">
-
-                            READ MORE
-
-                        </a>
-                    </button>
-                </p>
-
-
-            </li>
-
-            <li>
-
-                <div class="article_title">
-                    leetcode链表初等整理
-                </div>
-                <div class="article_last_date">
-                    2020-05-25
-                </div>
-                <div class="article_pre">
-                    力扣关于链表这部分基础算法还是较为简单和基础的 没有特殊说明的情况下，链表节点类型为： struct ListNode { int val; struct ListNode *next; };
-                    同时，需要注意，默认的头指...
-                </div>
-
-
-                <p>
-                    <button class="read_more" class="read_button">
-                        READ MORE
-                    </button>
-                </p>
-
-            </li>
-            <li>
-
-                <div class="article_title">
-                    链式存储二叉树的遍历
-                </div>
-                <div class="article_last_date">
-                    2020-05-29
-                </div>
-
-                <div class="article_pre">
-                    先序遍历，中序遍历，后序遍历以及层次遍历。 使用递归、队列。 整理自Leetcode。 说明 使用到的树结点类型为： struct TreeNode { int val; struct
-                    TreeNode *left;
-                    ...
-                </div>
-
-
-                <p>
-                    <button class="read_more" class="read_button">
-                        READ MORE
-                    </button>
-                </p>
-
-            </li>
-            <li>
-
-                <div class="article_title">
-                    链式存储二叉树的遍历
-                </div>
-                <div class="article_last_date">
-                    2020-05-29
-                </div>
-
-                <div class="article_pre">
-                    先序遍历，中序遍历，后序遍历以及层次遍历。 使用递归、队列。 整理自Leetcode。 说明 使用到的树结点类型为： struct TreeNode { int val; struct
-                    TreeNode *left;
-                    ...
-                </div>
-
-
-                <p>
-                    <button class="read_more" class="read_button">
-                        READ MORE
-                    </button>
-                </p>
-
-            </li>
-            <li>
-
-                <div class="article_title">
-                    链式存储二叉树的遍历
-                </div>
-                <div class="article_last_date">
-                    2020-05-29
-                </div>
-
-                <div class="article_pre">
-                    先序遍历，中序遍历，后序遍历以及层次遍历。 使用递归、队列。 整理自Leetcode。 说明 使用到的树结点类型为： struct TreeNode { int val; struct
-                    TreeNode *left;
-                    ...
-                </div>
-
-
-                <p>
-                    <button id="read_more" class="read_button">
-                        READ MORE
-                    </button>
-                </p>
-
-            </li>
+    <div class="content" id="main">
+            <ul id='article_list'>
 
 
         </ul>
 
 
+
+
     </div>
-    <!-- 
+    <!--
     <div class="author_func">
       操作文章
 
@@ -204,24 +100,23 @@
 
     <div class="aside">
         <ul class="aside-func">
-            <li>新建</li>
-            <li>修改</li>
-            <li>删除</li>
+            <div id="key">
+                <li id="new">新建</li>
+            </div>
             <li id="top">top</li>
         </ul>
     </div>
 
 
     <div class="page_jump">
-        <div class="left_page">
-            <a href="">← 上一页</a>
-
+        <div class="left_page" >
+            <a href="JavaScript:void(0)" >← 上一页</a>
 
         </div>
 
-        <div>
+        <div class = "right_page" id="nextPage">
 
-            <a href="">下一页 →</a>
+            <a href="JavaScript:void(0)">下一页 →</a>
         </div>
     </div>
 
@@ -230,14 +125,15 @@
 
 <footer class="foot">
 
-    --©2020-2020 --本站总访问量??次--Powered by ??--
+    --©2020-2020--Powered by 717HUB--
 </footer>
 
 </body>
 <script src="//at.alicdn.com/t/font_1953733_jaco4732ny.js">
 
 </script>
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.5.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/wsy.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js">
 </script>
 
@@ -246,9 +142,9 @@
     $(window).on('scroll', function () {
 
         if ($(this).scrollTop() > 150) {
-            $(".nav_bar").css({"padding-top": "22px", "padding-bottom": "12px"})
+            $(".nav_bar").css({ "padding-top": "22px", "padding-bottom": "12px" })
         } else {
-            $(".nav_bar").css({"padding-top": "32px", "padding-bottom": "18px"})
+            $(".nav_bar").css({ "padding-top": "32px", "padding-bottom": "18px" })
         }
 
 
@@ -277,6 +173,7 @@
     })
 
 
-</script>
 
+</script>
+<script src="js/click.js"></script>
 </html>

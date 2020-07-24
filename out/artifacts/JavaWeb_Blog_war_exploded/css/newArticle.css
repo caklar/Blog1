@@ -35,3 +35,57 @@
 .nav button:hover {
     background-color: #faf9f7;
 }
+.class_tip {
+    position: absolute;
+    display: none;
+    right: 275px;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    box-shadow: 6px 0 12px 0 rgba(0, 0, 0, 0.04);
+    background-color: #faf9f7;
+    line-height: 35px;
+    z-index: 999
+}
+
+.class_tip::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: #faf9f7;
+    transition: all 0.05s ease;
+    transform: translateX(-5px);
+    z-index: 998
+}
+
+.class_tip::after {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: #e3e3e3;
+    transform: translateX(-7px);
+}
+
+.class_tip a {
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.1s linear;
+}
+
+.class_tip a:hover {
+    background-color: #e7e7e7;
+}

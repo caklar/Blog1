@@ -11,18 +11,31 @@ import java.util.Map;
 实现按照分类进行文章的选取
 */
 public class article_info_Dao extends BaseDao {
-    //搜索所有文章
+
+    // 按照修改时间
+    public List<Map<String ,Object>> get_All_Article_Bydate(){
+
+        List<Map<String ,Object>> list=null;
+        String sql="SELECT * FROM article_info " +
+                " WHERE a_del=0 ORDER  BY a_date DESC";
+        list=super.executeQuery(sql);
+        return list;
+
+    }
+
+    //搜索所有文章 按照创建时间
     public List<Map<String ,Object>> get_All_Article(){
         List<Map<String ,Object>> list=null;
         String sql="SELECT * FROM article_info " +
-                " WHERE a_del=0";
+                " WHERE a_del=0 ORDER BY a_ldate DESC";
         list=super.executeQuery(sql);
         return list;
     }
     //按照文章分类搜索
     public List<Map<String, Object>> get_id_article(String id){
         List<Map<String ,Object>> list=null;
-        String sql="SELECT * from article_info where a_cid=?";
+        // li zong lin 做了修改，添加了 AND a_del=0
+        String sql="SELECT * from article_info where a_cid=? AND a_del=0 ORDER  BY a_date DESC";
         list=super.executeQuery(sql,id);
         return list;
     }
@@ -42,7 +55,7 @@ public class article_info_Dao extends BaseDao {
     }
     public List<Map<String ,Object>> get_exhibit_info_2(){
         List<Map<String,Object>> list=null;
-        String sql="SELECT a_id,a_title,a_context,a_date,a_ldate from article_info where a_del=0";
+        String sql="SELECT a_id,a_title,a_context_md,a_date,a_ldate from article_info where a_del=0 ORDER BY a_ldate DESC";
         list=super.executeQuery(sql);
         return list;
     }

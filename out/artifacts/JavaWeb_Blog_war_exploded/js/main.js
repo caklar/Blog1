@@ -3,51 +3,145 @@ let article;
 
 let pn = 0;
 let an = 0;
+let article_index;
 
 const request = new XMLHttpRequest();
 request.open("GET", `index`);
 
+let show_article = function () {
+    for (an = 0; an < (article.length - 10 * pn < 10 ? article.length - 10 * pn : 10)
+        ; an++) {
+
+        article_index = 10 * pn + an;
+
+        article[article_index].article_preview = article[article_index].article_preview.substring(0, 108);
+
+        $('#article_list').append(
+            `  <li>
+                <div class="article_title">
+                ${article[article_index].title}
+                </div>
+                
+                <div class="article_last_date">
+                ${article[article_index].ldate}
+                </div>
+                
+                <div class="article_pre">
+                ${article[article_index].article_preview}
+                </div>
+
+                <p>
+                <button class="read_more" class="read_button">
+                    <a href="GetOneArticleServlet?article_id=${article[article_index].article_id}">
+                    READ MORE
+                    </a>
+                </button>
+                </p>
+            </li>`
+        );
+
+    };
+    an = 0;
+}
+
+
+let mid_page = function () {
+    $('.page_jump')
+        .css({ "flex-direction": "row" })
+        .find('.left_page')
+        .css({ "display": "block" })
+        .end()
+        .find('.right_page')
+        .css({ "display": "block" })
+}
+
 request.onreadystatechange = () => {
     if (request.readyState === 4 && request.status === 200) {
 
-        // article_list.querySelectorAll("li").forEach(item => {
-        //     item.remove();
-        // })
+        article_list.querySelectorAll("li").forEach(item => {
+            item.remove();
+        })
 
         article = JSON.parse(request.response.replace(/[\n\r]/g, "<br/>"));
 
-        article.forEach(item => {
+        show_article();
 
-            article[an].article_preview = article[an].article_preview.substring(0, 20);
+        article_index = 10 * pn+10;
 
-            $('#article_list').append(
-                `   <div class="article_title">
-                    ${article[an].title}
-                    </div>
+        if (article.length <= article_index) {
+            $('.page_jump')
+                .find('.left_page')
+                .css({ "display": "none" })
+                .end()
+                .find('.right_page')
+                .css({ "display": "none" })
+        }
 
-                    <div class="article_pre">
-                    ${article[an].article_preview}
-                    </div>
-
-                    <div class="article_last_date">
-                    ${article[an].ldate}
-                    </div>
-
-                    <p>
-                    <button class="read_more" class="read_button">
-                        <a href="${article[an].url}">
-                        READ MORE
-                        </a>
-                    </button>
-                    </p>`
-            );
-            an += 1;
-        });
-        an = 0;
     }
 };
 request.send();
 
+
+
+$('.page_jump')
+    .on('click', '.left_page', (e) => {
+
+        $(window).scrollTop(0);
+
+        article_list.querySelectorAll("li").forEach(item => {
+            item.remove();
+        })
+
+        pn--;
+
+        show_article();
+
+
+        if (pn === 0) {
+            $('.page_jump')
+                .css({ "flex-direction": "row-reverse" })
+                .find('.left_page')
+                .css({ "display": "none" })
+                .end()
+                .find('.right_page')
+                .css({ "display": "block" })
+        }
+        else {
+
+            mid_page();
+        }
+
+    })
+    .end()
+    .on('click', '.right_page', (e) => {
+
+        $(window).scrollTop(0);
+
+        article_list.querySelectorAll("li").forEach(item => {
+            item.remove();
+        })
+
+        pn++;
+
+        show_article();
+
+
+        article_index = 10 * pn + 10;
+
+        if (article_index >= article.length) {
+            $('.page_jump')
+                .css({ "flex-direction": "row" })
+                .find('.left_page')
+                .css({ "display": "block" })
+                .end()
+                .find('.right_page')
+                .css({ "display": "none" })
+
+        } else {
+
+            mid_page();
+        }
+    })
 
 
 const menu_panel = document.getElementsByClassName("menu_panel")[0];
@@ -135,3 +229,57 @@ $(".bar_menu")
     u = s.concat([y]),
         setTimeout(function () { i() }, 100)
 }();
+
+
+$('#close1').on('click', function () {
+    $('.dialog_bg').css('display', 'none')
+    console.log('error')
+})
+$('#close2').on('click', function () {
+    $('.dialog_bg').css('display', 'none')
+})
+// 获取点击元素对象
+var click_id
+$('#key').on('click', function (e) {
+    $('.dialog_bg').css('display', 'block')
+    e = e || window.e
+    click_id = $(e.target).attr('id')
+    console.log(click_id)
+})
+
+// 请求口令
+$('#confirm1').on('click', function () {
+    $.ajax({
+        url: './EncryptServlet',
+        method: 'GET',
+        data: {
+            token: $('#pass').val()
+        },
+        dataType: 'json',
+        success: function (res) {
+            console.log(res)
+            if (res == '1') {
+                // 根据点击对象请求页面
+                if (click_id == 'new') {
+                    location.href = '/JavaWeb_Blog_war_exploded/views/newArticle.html'
+                } else if (click_id == 'update') {
+                    location.href = 'GetUpdateArticleInfoServlet?article_id=${ article_id }'
+                } else if (click_id == 'delete') {
+                    location.href = 'DeleteArticleServlet?article_id=${ article_id }'
+                } else if (click_id == 'com-delete') {
+                    $('.list a').css('display', 'block')
+                    $('.dialog_bg').css('display', 'none')
+                }
+            } else if (res == '0') {
+                $('#normal').hide()
+                $('#error').show()
+            }
+        }
+    })
+})
+
+// 控制两个盒子显示隐藏
+$('#confirm2').on('click', function () {
+    $('#normal').show()
+    $('#error').hide()
+})

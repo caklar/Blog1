@@ -33,3 +33,131 @@
     font: 500 16px/1.5 Verdana, Geneva, sans-serif;
     padding: 0;
 }
+
+.dialog_bg {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(185, 184, 184, 0.514);
+    z-index: 999;
+}
+
+
+.dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 250px;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.04);
+    background-color: #faf9f7;
+    text-align: center;
+    transform: translate(-200px, -125px);
+}
+
+.dialog span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.dialog input {
+    width: 250px;
+    margin: 80px 0 30px 75px;
+}
+
+.dialog p {
+    width: 250px;
+    margin: 105px 0 45px 75px;
+}
+
+#error {
+    display: none;
+}
+
+.comment-area {
+    width: 832px;
+    margin: 0 auto 10px;
+    padding: 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    background-color: #faf9f7;
+}
+.release {
+    width: 100%;
+}
+.release input {
+    box-sizing: content-box;
+    width: 280px;
+    height: 21px;
+    padding: 10px 5px;
+    border: none;
+    border-bottom: 1px solid #e3e3e3;
+    background-color: #faf9f7;
+    color: #777;
+    transition: all 0.5s;
+}
+.talk-out {
+    padding: 10px 0;
+}
+.talk {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px 5px;
+    color: #777;
+    border: none;
+    background-color: #faf9f7;
+}
+.bottom {
+    padding: 10px 0;
+    border-bottom: 1px solid #e3e3e3;
+    overflow: hidden;
+}
+.push {
+    float: right;
+    height: 34px;
+    width: 80px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    background-color: #faf9f7;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+.push:hover {
+    background-color: #f1efea;
+}
+.list {
+    width: 100%;
+    padding: 10px;
+}
+.list div {
+    width: 100%;
+    margin-top: 10px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.com-name {
+    font-weight: 500
+}
+.com-date {
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.com-content {
+    color: #444
+}
+
+.com-date a {
+    float: right;
+    color: #ef2f11 !important;
+    font-size: 14px;
+}
+
+.com-delete {
+    display: none;
+}
