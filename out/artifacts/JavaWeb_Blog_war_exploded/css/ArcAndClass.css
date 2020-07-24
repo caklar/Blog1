@@ -1,0 +1,43 @@
+.content {
+    width: 832px;
+    margin: 0 auto 32px;
+    padding-top: 125px;
+    background-color: #faf9f7;
+}
+
+.main-content {
+    padding: 32px 32px 32px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+}
+
+.main-content li {
+    height: 32px;
+    line-height: 32px;
+}
+
+.main-content a {
+    position: relative;
+    margin-right: 420px;
+}
+
+.main-content a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: #888;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transition: all 0.5s;
+}
+
+.main-content a:hover::after {
+    left: 0%;
+    width: 100%;
+}
+
+.main-content span {
+    color: #888;
+}

@@ -31,9 +31,14 @@ public class DeleteArticleServlet extends HttpServlet {
         int row;
         row = deleteArticle.delete_Article(Integer.parseInt(article_id));
 
-        PrintWriter out = response.getWriter();
-        out.print(row);
-        out.close();
+//        PrintWriter out = response.getWriter();
+//        out.print(row);
+//        out.close();
+
+        // 重定向
+        response.sendRedirect("http://localhost:8089/JavaWeb_Blog_war_exploded/index.jsp");
+
+
 
     }
 }

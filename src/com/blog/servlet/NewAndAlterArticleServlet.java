@@ -28,21 +28,22 @@ public class NewAndAlterArticleServlet extends javax.servlet.http.HttpServlet {
         String title = request.getParameter("title");
         String date = request.getParameter("date");
         String context = request.getParameter("content");
+        String context_md = request.getParameter("contentMd");
         String cname = request.getParameter("cname");
 
-        System.out.println(title+"in servlet");
+        //System.out.println(title+"in servlet");
 
         NewAndAlterArticleService newAndAlterArticleService = new NewAndAlterArticleService();
 
-        int row = newAndAlterArticleService.createArticle(title, date, context, cname);
+        // 查 id
+        int a_id;
 
-        HttpSession session = request.getSession();
-        session.setAttribute("title", title);
-        session.setAttribute("date", date);
-        session.setAttribute("context", context);
+        int row = newAndAlterArticleService.createArticle(title, date, context, context_md,cname);
+
+        a_id = newAndAlterArticleService.get_max_id();
 
         PrintWriter out=response.getWriter();
-        out.print(row);
+        out.print(a_id);
         out.close();
 //
 //        request.setAttribute("title", title);
@@ -51,7 +52,10 @@ public class NewAndAlterArticleServlet extends javax.servlet.http.HttpServlet {
 //
 //        request.getRequestDispatcher("views/article.jsp").forward(request, response);
 //
-
-
+///
+//        HttpSession session = request.getSession();
+//        session.setAttribute("title", title);
+//        session.setAttribute("date", date);
+//        session.setAttribute("context", context);
     }
 }
